@@ -1,0 +1,58 @@
+@use 'fonts';
+@use 'variables' as v;
+
+:root {
+  --color-accent: #e8372b;
+  --color-accent-hover: #f54b3f;
+  --color-accent-soft: #2c1b18;
+  --color-text: #fff;
+  --color-muted: #c4c1bf;
+  --color-background: #000;
+  --color-surface: #191715;
+  --color-card: var(--color-surface);
+  --color-border: #514b46;
+  --color-on-dark: #fff;
+  --color-on-dark-muted: #c4c1bf;
+  --color-dark-border: #6b6661;
+  --color-on-accent: #000;
+
+  color-scheme: dark;
+  font-family: v.$font-family-base;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  overflow-wrap: anywhere;
+  background-color: var(--color-background);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+  }
+}
