@@ -47,14 +47,6 @@ export const CalculatorPage = () => {
             totals={calculator.totals}
             isCompact
           />
-          <Button
-            className={styles.calculator__consultation}
-            onClick={() =>
-              requestContact('consultation', calculator.selectedProducts)
-            }
-          >
-            Не знаєш, з чого почати? Зв’яжись для консультації
-          </Button>
         </div>
       </div>
 

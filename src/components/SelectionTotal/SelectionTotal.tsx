@@ -1,6 +1,7 @@
 import { Button } from '../Button/Button';
 import type { PriceTotals } from '../../features/calculator/types';
 import { getTotalPriceLines } from '../../features/calculator/utils';
+import { scrollToPath } from '../../features/calculator/navigation';
 import styles from './SelectionTotal.module.scss';
 
 interface Props {
@@ -38,7 +39,13 @@ export const SelectionTotal = ({
         )}
       </div>
       {isCompact ? (
-        <Button fullWidth uppercase href="#my-path">
+        <Button
+          fullWidth
+          uppercase
+          onClick={scrollToPath}
+          disabled={isEmpty}
+          aria-controls="my-path"
+        >
           Мій шлях
         </Button>
       ) : (
