@@ -1,4 +1,10 @@
-import type { Price, PriceTotals, Product, ProductGroup } from './types';
+import type {
+  ContactIntent,
+  Price,
+  PriceTotals,
+  Product,
+  ProductGroup,
+} from './types';
 
 const numberFormat = new Intl.NumberFormat('uk-UA');
 
@@ -77,4 +83,44 @@ export const getTotalPriceLines = (totals: PriceTotals) => {
     primary: totals.usdMax > 0 ? dollars : 'Вартість уточнюється',
     secondary: '',
   };
+};
+
+export const getContactSummary = (
+  intent: ContactIntent,
+  products: Product[],
+  totals = getTotals(products),
+) => {
+  const lines = [
+    intent === 'consultation'
+      ? 'Запит на консультацію'
+      : 'Заявка на обрані продукти',
+    '',
+    ...products.map(
+      (product, index) =>
+        `${index + 1}. ${product.title} — ${formatPrice(product.price)}`,
+    ),
+    '',
+  ];
+
+  if (products.length === 0) {
+    lines.push('Потрібна допомога з вибором навчання.');
+  } else {
+    if (totals.uah > 0) {
+      const prefix = totals.hasFromPrice || totals.quoteCount > 0 ? 'від ' : '';
+
+      lines.push(`Разом у гривнях: ${prefix}${formatNumber(totals.uah)} грн`);
+    }
+
+    if (totals.usdMax > 0) {
+      lines.push(
+        `Окремо в доларах: $${formatNumber(totals.usdMin)}–${formatNumber(totals.usdMax)}`,
+      );
+    }
+
+    if (totals.quoteCount > 0) {
+      lines.push(`Вартість уточнюється для ${totals.quoteCount} позицій.`);
+    }
+  }
+
+  return lines.join('\n');
 };

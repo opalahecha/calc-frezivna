@@ -60,10 +60,15 @@
   &__content {
     display: grid;
     flex: 1;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
-    gap: 4px 12px;
+    gap: 8px;
     min-width: 0;
+
+    @include s.on-wide-mobile {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4px 12px;
+    }
   }
 
   &__title {
@@ -77,11 +82,15 @@
   }
 
   &__price {
-    max-width: 112px;
     font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
-    text-align: right;
+    text-align: left;
+
+    @include s.on-wide-mobile {
+      max-width: 112px;
+      text-align: right;
+    }
 
     @include s.on-tablet {
       max-width: 200px;

@@ -1,3 +1,5 @@
+export type ContactIntent = 'order' | 'consultation';
+
 export type Price =
   | { kind: 'fixed' | 'from'; amount: number; currency: 'UAH' }
   | { kind: 'range'; min: number; max: number; currency: 'USD' }

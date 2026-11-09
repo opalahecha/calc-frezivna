@@ -1,5 +1,11 @@
 @use 'variables' as v;
 
+@mixin on-wide-mobile {
+  @media (min-width: v.$wide-mobile-min-width) {
+    @content;
+  }
+}
+
 @mixin on-tablet {
   @media (min-width: v.$tablet-min-width) {
     @content;

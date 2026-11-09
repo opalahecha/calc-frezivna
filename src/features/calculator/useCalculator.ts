@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+import { subscribeToContactCompletion } from './contact';
 import { products } from './data';
 import type { ProductGroup } from './types';
 import { changeSelection, getTotals } from './utils';
 
 export const useCalculator = () => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  useEffect(() => subscribeToContactCompletion(() => setSelectedIds([])), []);
+
   const selectedProducts = products.filter((product) =>
     selectedIds.includes(product.id),
   );
