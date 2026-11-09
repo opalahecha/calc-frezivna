@@ -5,6 +5,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  min-width: 0;
+  max-width: 100%;
   min-height: 44px;
   padding: 14px 30px;
   font-family: inherit;
