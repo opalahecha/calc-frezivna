@@ -1,0 +1,57 @@
+@use '../../styles' as s;
+
+.calculator {
+  background-color: var(--color-background);
+
+  &__container {
+    @include s.page-container;
+  }
+
+  &__toolbar {
+    padding-block: 24px;
+
+    @include s.on-tablet {
+      padding-block: 32px;
+    }
+  }
+
+  &__shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-block: 0 24px;
+  }
+
+  &__shortcut {
+    flex: 1 1 auto;
+
+    @include s.on-tablet {
+      flex-grow: 0;
+    }
+  }
+
+  &__consultation {
+    width: 100%;
+    margin-top: 20px;
+
+    @include s.on-tablet {
+      width: fit-content;
+    }
+  }
+
+  &__result {
+    padding: 12px;
+    scroll-margin-top: 24px;
+    background-color: var(--color-background);
+
+    @include s.on-tablet {
+      padding: 20px 24px;
+    }
+  }
+
+  &__result-container {
+    width: 100%;
+    max-width: s.$container-max-width;
+    margin-inline: auto;
+  }
+}

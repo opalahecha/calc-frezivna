@@ -1,0 +1,118 @@
+@use '../../styles' as s;
+
+.product-card {
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 12px;
+  background-color: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: background-color s.$transition-duration;
+
+  &:focus-within {
+    position: relative;
+    outline: 2px solid var(--color-accent);
+    outline-offset: -2px;
+  }
+
+  &:hover:not(.product-card--selected) {
+    background-color: var(--color-card-hover);
+  }
+
+  &--selected {
+    background-color: var(--color-accent-soft);
+  }
+
+  &__control {
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    margin: 1px 0 0;
+    appearance: none;
+    background-color: transparent;
+    border: 1px solid var(--color-muted);
+    border-radius: 5px;
+    cursor: pointer;
+
+    &::after {
+      width: 5px;
+      height: 10px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      content: '';
+      opacity: 0;
+      transform: translateY(-1px) rotate(45deg);
+    }
+
+    &:checked {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    &:checked::after {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    display: grid;
+    flex: 1;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 4px 12px;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    @include s.on-tablet {
+      font-size: 15px;
+    }
+  }
+
+  &__price {
+    max-width: 112px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: right;
+
+    @include s.on-tablet {
+      max-width: 200px;
+      font-size: 14px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    max-width: 760px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-muted);
+
+    @include s.on-tablet {
+      grid-column: 1;
+      font-size: 13px;
+    }
+  }
+
+  &__badge {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 8px;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: var(--color-accent-text, var(--color-accent));
+    border-radius: 3px;
+  }
+}

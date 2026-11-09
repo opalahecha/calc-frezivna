@@ -1,10 +1,3 @@
-import styles from './App.module.scss';
+import { CalculatorPage } from './modules/CalculatorPage/CalculatorPage';
 
-export const App = () => (
-  <main className={styles.app}>
-    <h1 className={styles.app__title}>FREZIVNA</h1>
-    <p className={styles.app__description}>
-      Основа проєкту готова до розробки.
-    </p>
-  </main>
-);
+export const App = () => <CalculatorPage />;
