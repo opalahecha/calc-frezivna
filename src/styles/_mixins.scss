@@ -22,16 +22,3 @@
     padding-inline: 30px;
   }
 }
-
-@mixin text-button {
-  min-height: 44px;
-  padding: 4px 0;
-  font-weight: 500;
-  color: inherit;
-  text-align: left;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-}

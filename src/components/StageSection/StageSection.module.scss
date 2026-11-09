@@ -1,0 +1,125 @@
+@use '../../styles' as s;
+
+.stage {
+  --color-text: #191715;
+  --color-muted: #625e5b;
+  --color-card: #fff;
+  --color-card-hover: #faf8f6;
+  --color-border: #e6e2df;
+  --color-accent-soft: #fff4f2;
+  --color-accent-text: #b9281e;
+
+  padding: 12px;
+  color-scheme: light;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  scroll-margin-top: 24px;
+
+  @include s.on-tablet {
+    padding: 20px 24px;
+  }
+
+  &__container {
+    @include s.page-container;
+
+    padding: 24px 16px;
+    background-color: var(--color-card);
+    border-radius: 16px;
+
+    @include s.on-tablet {
+      padding: 32px 30px;
+    }
+
+    @include s.on-desktop {
+      padding-block: 40px;
+    }
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+
+    @include s.on-tablet {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__number {
+    flex-shrink: 0;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-accent);
+    white-space: nowrap;
+
+    @include s.on-tablet {
+      font-size: 72px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 24px;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    @include s.on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__description {
+    max-width: 720px;
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  &__groups {
+    display: grid;
+    gap: 28px;
+  }
+
+  &__group {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  &__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 0;
+  }
+
+  &__label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--color-accent-text);
+    text-transform: uppercase;
+  }
+
+  &__hint {
+    font-size: 12px;
+    color: var(--color-muted);
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    border-top: 1px solid var(--color-border);
+  }
+
+  &__clear {
+    margin-top: 12px;
+  }
+}
